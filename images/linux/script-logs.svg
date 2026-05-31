@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" role="img" aria-label="Automação de logs com Bash">
+<defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#111827}.title{font-size:34px;font-weight:700}.sub{font-size:18px;fill:#4b5563}.box-title{font-size:19px;font-weight:700}.box-text{font-size:15px;fill:#374151}.small{font-size:13px;fill:#6b7280}</style></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="50" y="60" class="title">Automação de logs com Bash</text>
+<text x="50" y="92" class="sub">Fluxo do script: encontrar logs, filtrar eventos importantes e ocultar dados sensíveis.</text>
+<rect x="50" y="135" width="300" height="115" rx="18" fill="#f3f4f6" stroke="#d1d5db"/>
+<text x="70" y="169" class="box-title">find</text>
+<text x="70" y="197" class="box-text">Localiza arquivos .log no</text>
+<text x="70" y="217" class="box-text">diretório configurado.</text>
+<rect x="385" y="135" width="300" height="115" rx="18" fill="#e0f2fe" stroke="#d1d5db"/>
+<text x="405" y="169" class="box-title">while read</text>
+<text x="405" y="197" class="box-text">Percorre cada arquivo encontrado</text>
+<text x="405" y="217" class="box-text">com segurança.</text>
+<rect x="720" y="135" width="300" height="115" rx="18" fill="#dcfce7" stroke="#d1d5db"/>
+<text x="740" y="169" class="box-title">grep ERROR</text>
+<text x="740" y="197" class="box-text">Extrai linhas de erro relevantes.</text>
+<rect x="50" y="280" width="300" height="115" rx="18" fill="#fef3c7" stroke="#d1d5db"/>
+<text x="70" y="314" class="box-title">grep SENSITIVE</text>
+<text x="70" y="342" class="box-text">Encontra linhas com possíveis</text>
+<text x="70" y="362" class="box-text">dados sensíveis.</text>
+<rect x="385" y="280" width="300" height="115" rx="18" fill="#fee2e2" stroke="#d1d5db"/>
+<text x="405" y="314" class="box-title">sed</text>
+<text x="405" y="342" class="box-text">Substitui valores privados por</text>
+<text x="405" y="362" class="box-text">REDACTED.</text>
+<rect x="720" y="280" width="300" height="115" rx="18" fill="#ede9fe" stroke="#d1d5db"/>
+<text x="740" y="314" class="box-title">relatório</text>
+<text x="740" y="342" class="box-text">Gera arquivos filtrados para</text>
+<text x="740" y="362" class="box-text">análise segura.</text>
+</svg>

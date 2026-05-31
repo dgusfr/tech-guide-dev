@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" role="img" aria-label="Permissões Linux">
+<defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#111827}.title{font-size:34px;font-weight:700}.sub{font-size:18px;fill:#4b5563}.box-title{font-size:19px;font-weight:700}.box-text{font-size:15px;fill:#374151}.small{font-size:13px;fill:#6b7280}</style></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="50" y="60" class="title">Permissões Linux</text>
+<text x="50" y="92" class="sub">Cada arquivo tem dono, grupo e outros, cada um com leitura, escrita e execução.</text>
+<rect x="50" y="135" width="300" height="115" rx="18" fill="#f3f4f6" stroke="#d1d5db"/>
+<text x="70" y="169" class="box-title">r — read</text>
+<text x="70" y="197" class="box-text">Permite ler arquivo ou listar</text>
+<text x="70" y="217" class="box-text">conteúdo de diretório.</text>
+<rect x="385" y="135" width="300" height="115" rx="18" fill="#e0f2fe" stroke="#d1d5db"/>
+<text x="405" y="169" class="box-title">w — write</text>
+<text x="405" y="197" class="box-text">Permite alterar arquivo ou</text>
+<text x="405" y="217" class="box-text">criar/remover itens em diretório.</text>
+<rect x="720" y="135" width="300" height="115" rx="18" fill="#dcfce7" stroke="#d1d5db"/>
+<text x="740" y="169" class="box-title">x — execute</text>
+<text x="740" y="197" class="box-text">Permite executar arquivo ou</text>
+<text x="740" y="217" class="box-text">atravessar/acessar diretório.</text>
+<rect x="50" y="280" width="300" height="115" rx="18" fill="#fef3c7" stroke="#d1d5db"/>
+<text x="70" y="314" class="box-title">u — user</text>
+<text x="70" y="342" class="box-text">Proprietário do arquivo.</text>
+<rect x="385" y="280" width="300" height="115" rx="18" fill="#fee2e2" stroke="#d1d5db"/>
+<text x="405" y="314" class="box-title">g — group</text>
+<text x="405" y="342" class="box-text">Grupo associado ao arquivo.</text>
+<rect x="720" y="280" width="300" height="115" rx="18" fill="#ede9fe" stroke="#d1d5db"/>
+<text x="740" y="314" class="box-title">o — others</text>
+<text x="740" y="342" class="box-text">Todos os demais usuários do</text>
+<text x="740" y="362" class="box-text">sistema.</text>
+</svg>
