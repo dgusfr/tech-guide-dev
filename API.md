@@ -1889,5 +1889,3 @@ As referências abaixo foram usadas para revisar, complementar e validar os conc
 - ROADMAP.SH. **JWT Authentication**. Disponível em: <https://roadmap.sh/guides/jwt-authentication>. Acesso em: 31 maio 2026.
 - LEVEL UP CODING. **Webhook vs Polling**. Publicação em X. Disponível em: <https://x.com/LevelUpCoding_/status/1809118819966988592>. Acesso em: 31 maio 2026.
 
----
-
