@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470">
+  <rect width="1200" height="470" fill="#fff"/>
+  <style>
+    .big{fill:#f6f8fa;stroke:#24292f;stroke-width:2;rx:18;ry:18}
+    .small{fill:#ddf4ff;stroke:#0969da;stroke-width:2;rx:12;ry:12}
+    .title{font:700 24px Arial, sans-serif;fill:#24292f}
+    .text{font:16px Arial, sans-serif;fill:#57606a}
+    .arrow{stroke:#0969da;stroke-width:3;fill:none;marker-end:url(#arrow)}
+  </style>
+  <defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 z" fill="#0969da"/></marker></defs>
+  <rect class="big" x="55" y="45" width="1090" height="380"/>
+  <text class="title" x="95" y="90">Workflow: .github/workflows/ci.yml</text>
+  <rect class="small" x="100" y="135" width="210" height="85"/>
+  <text class="title" x="145" y="170">on</text>
+  <text class="text" x="128" y="197">push / pull_request</text>
+  <path class="arrow" d="M315 178 H400"/>
+  <rect class="small" x="410" y="120" width="300" height="250"/>
+  <text class="title" x="515" y="158">job</text>
+  <text class="text" x="455" y="188">runs-on: ubuntu-latest</text>
+  <rect class="big" x="445" y="215" width="230" height="42"/>
+  <text class="text" x="470" y="241">step: checkout</text>
+  <rect class="big" x="445" y="265" width="230" height="42"/>
+  <text class="text" x="470" y="291">step: setup runtime</text>
+  <rect class="big" x="445" y="315" width="230" height="42"/>
+  <text class="text" x="470" y="341">step: lint/test/build</text>
+  <path class="arrow" d="M715 245 H790"/>
+  <rect class="small" x="800" y="120" width="290" height="250"/>
+  <text class="title" x="890" y="158">recursos</text>
+  <text class="text" x="840" y="195">services: postgres/redis</text>
+  <text class="text" x="840" y="225">secrets: senhas/tokens</text>
+  <text class="text" x="840" y="255">cache: dependências</text>
+  <text class="text" x="840" y="285">artifacts: relatórios</text>
+  <text class="text" x="840" y="315">matrix: versões/SO</text>
+</svg>

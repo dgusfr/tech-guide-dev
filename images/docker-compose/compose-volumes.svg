@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+  <rect width="1100" height="520" fill="#f8fafc"/>
+  <style>.title{font:700 30px Arial;fill:#0f172a}.label{font:700 20px Arial;fill:#0f172a}.text{font:16px Arial;fill:#334155}.box{fill:white;stroke:#334155;stroke-width:2;rx:18}.vol{fill:#dcfce7;stroke:#16a34a;stroke-width:3;rx:18}.arrow{stroke:#334155;stroke-width:3;marker-end:url(#arrow)}</style>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker></defs>
+  <text x="55" y="55" class="title">Volume nomeado: dados sobrevivem ao contêiner</text>
+  <rect x="100" y="140" width="300" height="170" class="box"/>
+  <text x="135" y="185" class="label">postgres container</text>
+  <text x="135" y="225" class="text">/var/lib/postgresql/data</text>
+  <text x="135" y="260" class="text">camada do contêiner é descartável</text>
+  <line x1="400" y1="225" x2="560" y2="225" class="arrow"/>
+  <rect x="580" y="140" width="390" height="170" class="vol"/>
+  <text x="630" y="185" class="label">volume: postgres-data</text>
+  <text x="630" y="225" class="text">gerenciado pelo Docker</text>
+  <text x="630" y="260" class="text">continua após docker compose down</text>
+  <text x="150" y="390" class="text">Use docker compose down -v apenas quando quiser apagar os volumes do projeto.</text>
+</svg>

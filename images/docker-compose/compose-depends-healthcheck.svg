@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="540" viewBox="0 0 1100 540">
+  <rect width="1100" height="540" fill="#f8fafc"/>
+  <style>.title{font:700 30px Arial;fill:#0f172a}.label{font:700 20px Arial;fill:#0f172a}.text{font:16px Arial;fill:#334155}.small{font:14px Arial;fill:#475569}.box{fill:white;stroke:#334155;stroke-width:2;rx:18}.red{fill:#fee2e2;stroke:#ef4444}.green{fill:#dcfce7;stroke:#16a34a}.yellow{fill:#fef9c3;stroke:#ca8a04}.arrow{stroke:#334155;stroke-width:3;marker-end:url(#arrow)}</style>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker></defs>
+  <text x="55" y="55" class="title">depends_on x serviço realmente pronto</text>
+  <rect x="90" y="120" width="240" height="120" class="box yellow"/>
+  <text x="125" y="160" class="label">1. postgres inicia</text>
+  <text x="125" y="195" class="text">contêiner criado</text>
+  <text x="125" y="220" class="small">processo ainda pode estar carregando</text>
+  <line x1="330" y1="180" x2="430" y2="180" class="arrow"/>
+  <rect x="445" y="120" width="240" height="120" class="box red"/>
+  <text x="480" y="160" class="label">2. API inicia cedo</text>
+  <text x="480" y="195" class="text">erro: conexão recusada</text>
+  <text x="480" y="220" class="small">depends_on simples não basta</text>
+  <line x1="685" y1="180" x2="785" y2="180" class="arrow"/>
+  <rect x="800" y="120" width="240" height="120" class="box green"/>
+  <text x="835" y="160" class="label">3. healthcheck</text>
+  <text x="835" y="195" class="text">service_healthy</text>
+  <text x="835" y="220" class="small">API espera banco aceitar conexão</text>
+  <rect x="165" y="315" width="770" height="130" class="box"/>
+  <text x="205" y="360" class="label">Solução prática</text>
+  <text x="205" y="395" class="text">Use depends_on com condition: service_healthy quando a API depende de banco/cache.</text>
+  <text x="205" y="425" class="small">Ainda assim, sua aplicação deve implementar retry, pois falhas podem ocorrer depois da inicialização.</text>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560">
+  <rect width="1100" height="560" fill="#f8fafc"/>
+  <style>
+    .title{font:700 30px Arial; fill:#0f172a}.label{font:600 20px Arial; fill:#0f172a}.text{font:16px Arial; fill:#334155}.small{font:14px Arial; fill:#475569}
+    .box{fill:white;stroke:#334155;stroke-width:2;rx:18}.blue{fill:#e0f2fe;stroke:#0284c7}.green{fill:#dcfce7;stroke:#16a34a}.orange{fill:#ffedd5;stroke:#f97316}.purple{fill:#f3e8ff;stroke:#9333ea}
+    .arrow{stroke:#334155;stroke-width:3;marker-end:url(#arrow)}
+  </style>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker></defs>
+  <text x="55" y="55" class="title">Docker Compose: uma aplicação descrita em um arquivo</text>
+  <rect x="60" y="100" width="280" height="320" class="box blue"/>
+  <text x="90" y="145" class="label">compose.yaml</text>
+  <text x="90" y="190" class="text">services:</text>
+  <text x="115" y="220" class="small">api</text>
+  <text x="115" y="250" class="small">postgres</text>
+  <text x="115" y="280" class="small">redis</text>
+  <text x="90" y="325" class="text">networks:</text>
+  <text x="115" y="355" class="small">backend</text>
+  <text x="90" y="395" class="text">volumes:</text>
+  <text x="115" y="425" class="small">postgres-data</text>
+  <line x1="350" y1="260" x2="455" y2="260" class="arrow"/>
+  <rect x="470" y="120" width="250" height="120" class="box green"/>
+  <text x="505" y="165" class="label">docker compose up</text>
+  <text x="505" y="200" class="text">lê o YAML e cria o stack</text>
+  <line x1="720" y1="180" x2="810" y2="180" class="arrow"/>
+  <rect x="825" y="85" width="220" height="90" class="box purple"/>
+  <text x="855" y="122" class="label">API</text>
+  <text x="855" y="150" class="small">porta exposta ao host</text>
+  <rect x="825" y="225" width="220" height="90" class="box orange"/>
+  <text x="855" y="262" class="label">PostgreSQL</text>
+  <text x="855" y="290" class="small">volume persistente</text>
+  <rect x="825" y="365" width="220" height="90" class="box green"/>
+  <text x="855" y="402" class="label">Redis</text>
+  <text x="855" y="430" class="small">rede interna</text>
+  <line x1="935" y1="175" x2="935" y2="225" class="arrow"/>
+  <line x1="935" y1="315" x2="935" y2="365" class="arrow"/>
+</svg>

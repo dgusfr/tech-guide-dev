@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420">
+  <rect width="1200" height="420" fill="#ffffff"/>
+  <style>
+    .box{fill:#f6f8fa;stroke:#24292f;stroke-width:2;rx:16;ry:16}
+    .title{font:700 22px Arial, sans-serif;fill:#24292f}
+    .text{font:16px Arial, sans-serif;fill:#57606a}
+    .arrow{stroke:#0969da;stroke-width:3;fill:none;marker-end:url(#arrow)}
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 z" fill="#0969da"/>
+    </marker>
+  </defs>
+  <rect class="box" x="40" y="90" width="160" height="110"/>
+  <text class="title" x="75" y="130">Dev</text>
+  <text class="text" x="62" y="160">commit</text>
+  <text class="text" x="62" y="184">push / PR</text>
+  <path class="arrow" d="M205 145 H310"/>
+  <rect class="box" x="320" y="70" width="185" height="150"/>
+  <text class="title" x="350" y="112">GitHub</text>
+  <text class="text" x="350" y="145">evento:</text>
+  <text class="text" x="350" y="170">push</text>
+  <text class="text" x="350" y="195">pull_request</text>
+  <path class="arrow" d="M510 145 H615"/>
+  <rect class="box" x="625" y="45" width="200" height="200"/>
+  <text class="title" x="660" y="88">CI</text>
+  <text class="text" x="655" y="122">checkout</text>
+  <text class="text" x="655" y="148">instalar deps</text>
+  <text class="text" x="655" y="174">lint</text>
+  <text class="text" x="655" y="200">testes</text>
+  <text class="text" x="655" y="226">build</text>
+  <path class="arrow" d="M830 145 H935"/>
+  <rect class="box" x="945" y="70" width="210" height="150"/>
+  <text class="title" x="990" y="112">CD</text>
+  <text class="text" x="975" y="145">artefato</text>
+  <text class="text" x="975" y="170">imagem Docker</text>
+  <text class="text" x="975" y="195">deploy controlado</text>
+  <path class="arrow" d="M725 250 V315"/>
+  <rect class="box" x="530" y="315" width="390" height="70"/>
+  <text class="text" x="560" y="358">Status check bloqueia o merge se algo falhar</text>
+</svg>

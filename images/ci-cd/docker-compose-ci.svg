@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+  <rect width="1200" height="500" fill="#fff"/>
+  <style>
+    .box{fill:#f6f8fa;stroke:#24292f;stroke-width:2;rx:16;ry:16}
+    .service{fill:#dafbe1;stroke:#1a7f37;stroke-width:2;rx:14;ry:14}
+    .title{font:700 24px Arial, sans-serif;fill:#24292f}
+    .text{font:16px Arial, sans-serif;fill:#57606a}
+    .arrow{stroke:#1a7f37;stroke-width:3;fill:none;marker-end:url(#arrow)}
+  </style>
+  <defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M2,2 L10,6 L2,10 z" fill="#1a7f37"/></marker></defs>
+  <rect class="box" x="55" y="45" width="1090" height="410"/>
+  <text class="title" x="95" y="90">Runner do GitHub Actions</text>
+  <rect class="box" x="100" y="135" width="260" height="220"/>
+  <text class="title" x="145" y="175">Workflow</text>
+  <text class="text" x="130" y="210">docker compose up -d</text>
+  <text class="text" x="130" y="240">docker compose exec -T api</text>
+  <text class="text" x="130" y="270">docker compose logs</text>
+  <text class="text" x="130" y="300">docker compose down -v</text>
+  <path class="arrow" d="M365 245 H450"/>
+  <rect class="service" x="470" y="110" width="260" height="100"/>
+  <text class="title" x="550" y="150">api</text>
+  <text class="text" x="515" y="180">FastAPI / Node / Go</text>
+  <rect class="service" x="470" y="250" width="260" height="100"/>
+  <text class="title" x="535" y="290">postgres</text>
+  <text class="text" x="520" y="320">healthcheck + volume</text>
+  <rect class="service" x="810" y="180" width="240" height="100"/>
+  <text class="title" x="890" y="220">redis</text>
+  <text class="text" x="855" y="250">cache / filas / testes</text>
+  <path class="arrow" d="M605 210 V245"/>
+  <path class="arrow" d="M735 160 C790 160 790 230 805 230"/>
+</svg>

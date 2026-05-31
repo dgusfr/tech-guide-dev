@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+  <rect width="1100" height="520" fill="#f8fafc"/>
+  <style>.title{font:700 30px Arial;fill:#0f172a}.label{font:700 20px Arial;fill:#0f172a}.text{font:16px Arial;fill:#334155}.box{fill:white;stroke:#334155;stroke-width:2;rx:18}.net{fill:#e0f2fe;stroke:#0284c7;stroke-width:3;rx:28}.arrow{stroke:#334155;stroke-width:3;marker-end:url(#arrow)}</style>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker></defs>
+  <text x="55" y="55" class="title">DNS interno do Compose</text>
+  <rect x="80" y="110" width="940" height="300" class="net"/>
+  <text x="110" y="150" class="label">Rede padrão do projeto: app_default</text>
+  <rect x="150" y="210" width="230" height="120" class="box"/>
+  <text x="190" y="250" class="label">api</text>
+  <text x="185" y="280" class="text">DATABASE_URL=</text>
+  <text x="185" y="305" class="text">postgres:5432</text>
+  <rect x="465" y="210" width="230" height="120" class="box"/>
+  <text x="505" y="250" class="label">postgres</text>
+  <text x="505" y="280" class="text">hostname interno:</text>
+  <text x="505" y="305" class="text">postgres</text>
+  <rect x="780" y="210" width="170" height="120" class="box"/>
+  <text x="820" y="250" class="label">redis</text>
+  <text x="815" y="280" class="text">hostname:</text>
+  <text x="815" y="305" class="text">redis</text>
+  <line x1="380" y1="270" x2="465" y2="270" class="arrow"/>
+  <line x1="695" y1="270" x2="780" y2="270" class="arrow"/>
+  <text x="150" y="455" class="text">Dentro da rede do Compose, os serviços se encontram pelo nome definido em services.</text>
+</svg>
