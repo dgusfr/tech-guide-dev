@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+
+<defs>
+  <style>
+    .bg{fill:#ffffff}.box{fill:#f8fafc;stroke:#334155;stroke-width:2;rx:12;ry:12}.accent{fill:#e0f2fe;stroke:#0369a1;stroke-width:2;rx:12;ry:12}.warn{fill:#fef3c7;stroke:#b45309;stroke-width:2;rx:12;ry:12}.ok{fill:#dcfce7;stroke:#15803d;stroke-width:2;rx:12;ry:12}.queue{fill:#f3e8ff;stroke:#7e22ce;stroke-width:2;rx:12;ry:12}.txt{font-family:Arial, sans-serif;font-size:16px;fill:#0f172a}.small{font-family:Arial, sans-serif;font-size:13px;fill:#334155}.title{font-family:Arial, sans-serif;font-size:20px;font-weight:bold;fill:#0f172a}.arrow{stroke:#334155;stroke-width:2.5;fill:none;marker-end:url(#arrow)}
+  </style>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker>
+</defs>
+
+<rect class="bg" width="1100" height="520"/>
+<text class="title" x="40" y="45">Monolito × Microsserviços</text>
+<rect class="warn" x="60" y="90" width="400" height="290"/>
+<text class="title" x="175" y="130">Monolito</text>
+<rect class="box" x="105" y="160" width="310" height="50"/><text class="txt" x="170" y="192">Interface + API</text>
+<rect class="box" x="105" y="225" width="310" height="50"/><text class="txt" x="160" y="257">Regras de negócio</text>
+<rect class="box" x="105" y="290" width="310" height="50"/><text class="txt" x="190" y="322">Persistência</text>
+<text class="small" x="95" y="415">Um bloco único para deploy, escala e manutenção.</text>
+
+<rect class="accent" x="610" y="90" width="150" height="70"/><text class="txt" x="647" y="132">Gateway</text>
+<rect class="ok" x="560" y="230" width="170" height="70"/><text class="txt" x="590" y="272">Catálogo</text>
+<rect class="ok" x="770" y="230" width="170" height="70"/><text class="txt" x="810" y="272">Pedidos</text>
+<rect class="ok" x="665" y="350" width="170" height="70"/><text class="txt" x="700" y="392">Pagamentos</text>
+<text class="title" x="668" y="45">Microsserviços</text>
+<path class="arrow" d="M685 160 L640 230"/><path class="arrow" d="M705 160 L850 230"/><path class="arrow" d="M690 160 L750 350"/>
+<text class="small" x="560" y="455">Serviços menores, independentes, com deploy e escala separados.</text>
+</svg>

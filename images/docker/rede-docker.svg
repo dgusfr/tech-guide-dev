@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <defs>
+    <style>
+      .bg{fill:#f8fafc}
+      .card{fill:#ffffff;stroke:#cbd5e1;stroke-width:2;rx:24}
+      .box{fill:#eef2ff;stroke:#6366f1;stroke-width:2;rx:18}
+      .box2{fill:#ecfdf5;stroke:#10b981;stroke-width:2;rx:18}
+      .box3{fill:#fff7ed;stroke:#f97316;stroke-width:2;rx:18}
+      .box4{fill:#fef2f2;stroke:#ef4444;stroke-width:2;rx:18}
+      .text{font-family:Arial, Helvetica, sans-serif;fill:#0f172a;font-size:26px}
+      .small{font-family:Arial, Helvetica, sans-serif;fill:#334155;font-size:20px}
+      .tiny{font-family:Arial, Helvetica, sans-serif;fill:#475569;font-size:17px}
+      .title{font-family:Arial, Helvetica, sans-serif;fill:#0f172a;font-size:34px;font-weight:700}
+      .arrow{stroke:#334155;stroke-width:4;fill:none;marker-end:url(#arrow)}
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#334155" />
+    </marker>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1200" height="700"/>
+  <text class="title" x="60" y="70">Rede bridge personalizada e DNS interno</text>
+  
+  <rect class="card" x="130" y="140" width="940" height="420"/>
+  <text class="text" x="420" y="195">Rede: backend-net</text>
+  <rect class="box" x="210" y="270" width="240" height="120"/><text class="text" x="280" y="320">api</text><text class="tiny" x="240" y="355">http://api:8000</text>
+  <rect class="box2" x="500" y="270" width="240" height="120"/><text class="text" x="565" y="320">postgres</text><text class="tiny" x="530" y="355">postgres:5432</text>
+  <rect class="box3" x="790" y="270" width="240" height="120"/><text class="text" x="870" y="320">redis</text><text class="tiny" x="830" y="355">redis:6379</text>
+  <path class="arrow" d="M450 330 L490 330"/>
+  <path class="arrow" d="M740 330 L780 330"/>
+  <text class="small" x="220" y="470">Containers na mesma rede definida pelo usuário podem se encontrar pelo nome.</text>
+
+</svg>

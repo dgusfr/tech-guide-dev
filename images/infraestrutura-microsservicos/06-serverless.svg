@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+
+<defs>
+  <style>
+    .bg{fill:#ffffff}.box{fill:#f8fafc;stroke:#334155;stroke-width:2;rx:12;ry:12}.accent{fill:#e0f2fe;stroke:#0369a1;stroke-width:2;rx:12;ry:12}.warn{fill:#fef3c7;stroke:#b45309;stroke-width:2;rx:12;ry:12}.ok{fill:#dcfce7;stroke:#15803d;stroke-width:2;rx:12;ry:12}.queue{fill:#f3e8ff;stroke:#7e22ce;stroke-width:2;rx:12;ry:12}.txt{font-family:Arial, sans-serif;font-size:16px;fill:#0f172a}.small{font-family:Arial, sans-serif;font-size:13px;fill:#334155}.title{font-family:Arial, sans-serif;font-size:20px;font-weight:bold;fill:#0f172a}.arrow{stroke:#334155;stroke-width:2.5;fill:none;marker-end:url(#arrow)}
+  </style>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker>
+</defs>
+
+<rect class="bg" width="1100" height="520"/>
+<text class="title" x="40" y="45">Arquitetura Serverless orientada a eventos</text>
+<rect class="box" x="70" y="150" width="180" height="70"/><text class="txt" x="113" y="192">Cliente</text>
+<rect class="accent" x="330" y="150" width="210" height="70"/><text class="txt" x="380" y="192">API Gateway</text>
+<rect class="ok" x="630" y="95" width="210" height="70"/><text class="txt" x="674" y="137">Função login</text>
+<rect class="ok" x="630" y="200" width="210" height="70"/><text class="txt" x="663" y="242">Função checkout</text>
+<rect class="queue" x="630" y="315" width="210" height="70"/><text class="txt" x="676" y="357">Fila/Eventos</text>
+<rect class="box" x="900" y="200" width="160" height="70"/><text class="txt" x="934" y="242">Banco</text>
+<path class="arrow" d="M250 185 L330 185"/><path class="arrow" d="M540 180 L630 130"/><path class="arrow" d="M540 195 L630 235"/><path class="arrow" d="M735 270 L735 315"/><path class="arrow" d="M840 235 L900 235"/>
+</svg>

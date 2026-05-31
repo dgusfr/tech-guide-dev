@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+
+<defs>
+  <style>
+    .bg{fill:#ffffff}.box{fill:#f8fafc;stroke:#334155;stroke-width:2;rx:12;ry:12}.accent{fill:#e0f2fe;stroke:#0369a1;stroke-width:2;rx:12;ry:12}.warn{fill:#fef3c7;stroke:#b45309;stroke-width:2;rx:12;ry:12}.ok{fill:#dcfce7;stroke:#15803d;stroke-width:2;rx:12;ry:12}.queue{fill:#f3e8ff;stroke:#7e22ce;stroke-width:2;rx:12;ry:12}.txt{font-family:Arial, sans-serif;font-size:16px;fill:#0f172a}.small{font-family:Arial, sans-serif;font-size:13px;fill:#334155}.title{font-family:Arial, sans-serif;font-size:20px;font-weight:bold;fill:#0f172a}.arrow{stroke:#334155;stroke-width:2.5;fill:none;marker-end:url(#arrow)}
+  </style>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker>
+</defs>
+
+<rect class="bg" width="1100" height="520"/>
+<text class="title" x="40" y="45">Comunicação síncrona e assíncrona</text>
+<text class="title" x="80" y="105">Síncrona</text>
+<rect class="box" x="80" y="140" width="180" height="70"/><text class="txt" x="118" y="182">Serviço A</text>
+<rect class="ok" x="390" y="140" width="180" height="70"/><text class="txt" x="428" y="182">Serviço B</text>
+<path class="arrow" d="M260 175 L390 175"/><path class="arrow" d="M390 200 L260 200"/>
+<text class="small" x="100" y="250">A espera B responder antes de continuar.</text>
+
+<text class="title" x="80" y="335">Assíncrona</text>
+<rect class="box" x="80" y="370" width="180" height="70"/><text class="txt" x="118" y="412">Serviço A</text>
+<rect class="queue" x="400" y="370" width="180" height="70"/><text class="txt" x="438" y="412">Fila/Evento</text>
+<rect class="ok" x="720" y="330" width="180" height="60"/><text class="txt" x="760" y="367">Serviço B</text>
+<rect class="ok" x="720" y="430" width="180" height="60"/><text class="txt" x="760" y="467">Serviço C</text>
+<path class="arrow" d="M260 405 L400 405"/><path class="arrow" d="M580 400 L720 360"/><path class="arrow" d="M580 420 L720 460"/>
+<text class="small" x="610" y="255">Eventos desacoplam produtores e consumidores.</text>
+</svg>

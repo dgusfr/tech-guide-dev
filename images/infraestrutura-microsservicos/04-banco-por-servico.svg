@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+
+<defs>
+  <style>
+    .bg{fill:#ffffff}.box{fill:#f8fafc;stroke:#334155;stroke-width:2;rx:12;ry:12}.accent{fill:#e0f2fe;stroke:#0369a1;stroke-width:2;rx:12;ry:12}.warn{fill:#fef3c7;stroke:#b45309;stroke-width:2;rx:12;ry:12}.ok{fill:#dcfce7;stroke:#15803d;stroke-width:2;rx:12;ry:12}.queue{fill:#f3e8ff;stroke:#7e22ce;stroke-width:2;rx:12;ry:12}.txt{font-family:Arial, sans-serif;font-size:16px;fill:#0f172a}.small{font-family:Arial, sans-serif;font-size:13px;fill:#334155}.title{font-family:Arial, sans-serif;font-size:20px;font-weight:bold;fill:#0f172a}.arrow{stroke:#334155;stroke-width:2.5;fill:none;marker-end:url(#arrow)}
+  </style>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker>
+</defs>
+
+<rect class="bg" width="1100" height="520"/>
+<text class="title" x="40" y="45">Banco por serviço × banco compartilhado</text>
+<text class="title" x="80" y="100">Preferível em microsserviços</text>
+<rect class="ok" x="80" y="130" width="190" height="60"/><text class="txt" x="120" y="167">Catálogo</text>
+<rect class="box" x="90" y="220" width="170" height="60"/><text class="txt" x="125" y="257">DB Catálogo</text>
+<rect class="ok" x="340" y="130" width="190" height="60"/><text class="txt" x="385" y="167">Pedidos</text>
+<rect class="box" x="350" y="220" width="170" height="60"/><text class="txt" x="390" y="257">DB Pedidos</text>
+<rect class="ok" x="600" y="130" width="190" height="60"/><text class="txt" x="642" y="167">Pagamentos</text>
+<rect class="box" x="610" y="220" width="170" height="60"/><text class="txt" x="633" y="257">DB Pagamentos</text>
+<path class="arrow" d="M175 190 L175 220"/><path class="arrow" d="M435 190 L435 220"/><path class="arrow" d="M695 190 L695 220"/>
+<text class="title" x="80" y="365">Atenção: banco compartilhado</text>
+<rect class="warn" x="80" y="400" width="710" height="70"/><text class="txt" x="125" y="443">Útil em exceções, mas aumenta acoplamento e risco de mudanças cruzadas.</text>
+</svg>
