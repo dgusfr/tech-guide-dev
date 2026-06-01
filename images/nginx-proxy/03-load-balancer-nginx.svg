@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+<title id="title">NGINX como load balancer</title>
+<desc id="desc">Diagrama didático da apostila de NGINX e Proxy.</desc>
+<style>
+  .bg { fill: #f8fafc; }
+  .box { fill: #ffffff; stroke: #334155; stroke-width: 2; rx: 18; }
+  .primary { fill: #dbeafe; stroke: #1d4ed8; stroke-width: 2; rx: 18; }
+  .green { fill: #dcfce7; stroke: #15803d; stroke-width: 2; rx: 18; }
+  .amber { fill: #fef3c7; stroke: #b45309; stroke-width: 2; rx: 18; }
+  .red { fill: #fee2e2; stroke: #b91c1c; stroke-width: 2; rx: 18; }
+  .purple { fill: #ede9fe; stroke: #6d28d9; stroke-width: 2; rx: 18; }
+  .text { font-family: Arial, Helvetica, sans-serif; fill: #0f172a; font-size: 24px; }
+  .small { font-family: Arial, Helvetica, sans-serif; fill: #334155; font-size: 18px; }
+  .tiny { font-family: Arial, Helvetica, sans-serif; fill: #475569; font-size: 15px; }
+  .title { font-family: Arial, Helvetica, sans-serif; fill: #0f172a; font-size: 32px; font-weight: 700; }
+  .arrow { stroke: #334155; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+  .dash { stroke: #64748b; stroke-width: 3; stroke-dasharray: 8 8; fill: none; marker-end: url(#arrow); }
+  .line { stroke: #94a3b8; stroke-width: 2; fill: none; }
+</style>
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+    <path d="M2,2 L10,6 L2,10 z" fill="#334155" />
+  </marker>
+</defs>
+<rect class="bg" x="0" y="0" width="1200" height="620"/>
+<text class="title" x="60" y="56">NGINX como load balancer</text>
+
+<rect class="box" x="70" y="250" width="180" height="100"/>
+<text class="small" x="103" y="292">Clientes</text>
+<text class="tiny" x="92" y="320">muitas requisições</text>
+
+<rect class="primary" x="380" y="230" width="220" height="140"/>
+<text class="text" x="432" y="285">NGINX</text>
+<text class="small" x="420" y="320">upstream api_backend</text>
+
+<rect class="green" x="760" y="100" width="220" height="90"/>
+<text class="small" x="805" y="147">app-1:3000</text>
+<rect class="green" x="760" y="260" width="220" height="90"/>
+<text class="small" x="805" y="307">app-2:3000</text>
+<rect class="green" x="760" y="420" width="220" height="90"/>
+<text class="small" x="805" y="467">app-3:3000</text>
+
+<path class="arrow" d="M250 300 H380"/>
+<text class="tiny" x="275" y="285">HTTP</text>
+<path class="arrow" d="M600 270 C670 160 700 145 760 145"/>
+<path class="arrow" d="M600 300 H760"/>
+<path class="arrow" d="M600 330 C670 430 700 465 760 465"/>
+<text class="tiny" x="630" y="240">round-robin, least_conn, ip_hash...</text>
+<text class="tiny" x="125" y="390">O cliente conhece apenas o NGINX.</text>
+<text class="tiny" x="735" y="545">Os backends podem escalar horizontalmente.</text>
+
+</svg>

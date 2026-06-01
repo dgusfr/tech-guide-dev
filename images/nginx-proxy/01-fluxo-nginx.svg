@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+<title id="title">Fluxo básico: cliente, NGINX e aplicação</title>
+<desc id="desc">Diagrama didático da apostila de NGINX e Proxy.</desc>
+<style>
+  .bg { fill: #f8fafc; }
+  .box { fill: #ffffff; stroke: #334155; stroke-width: 2; rx: 18; }
+  .primary { fill: #dbeafe; stroke: #1d4ed8; stroke-width: 2; rx: 18; }
+  .green { fill: #dcfce7; stroke: #15803d; stroke-width: 2; rx: 18; }
+  .amber { fill: #fef3c7; stroke: #b45309; stroke-width: 2; rx: 18; }
+  .red { fill: #fee2e2; stroke: #b91c1c; stroke-width: 2; rx: 18; }
+  .purple { fill: #ede9fe; stroke: #6d28d9; stroke-width: 2; rx: 18; }
+  .text { font-family: Arial, Helvetica, sans-serif; fill: #0f172a; font-size: 24px; }
+  .small { font-family: Arial, Helvetica, sans-serif; fill: #334155; font-size: 18px; }
+  .tiny { font-family: Arial, Helvetica, sans-serif; fill: #475569; font-size: 15px; }
+  .title { font-family: Arial, Helvetica, sans-serif; fill: #0f172a; font-size: 32px; font-weight: 700; }
+  .arrow { stroke: #334155; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+  .dash { stroke: #64748b; stroke-width: 3; stroke-dasharray: 8 8; fill: none; marker-end: url(#arrow); }
+  .line { stroke: #94a3b8; stroke-width: 2; fill: none; }
+</style>
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+    <path d="M2,2 L10,6 L2,10 z" fill="#334155" />
+  </marker>
+</defs>
+<rect class="bg" x="0" y="0" width="1200" height="620"/>
+<text class="title" x="60" y="56">Fluxo básico: cliente, NGINX e aplicação</text>
+
+<rect class="box" x="60" y="150" width="200" height="120"/>
+<text class="text" x="95" y="200">Cliente</text>
+<text class="small" x="95" y="232">Browser / app</text>
+
+<rect class="amber" x="360" y="150" width="180" height="120"/>
+<text class="text" x="408" y="200">DNS</text>
+<text class="small" x="390" y="232">domínio → IP</text>
+
+<rect class="primary" x="640" y="140" width="220" height="140"/>
+<text class="text" x="708" y="195">NGINX</text>
+<text class="small" x="682" y="230">porta 80/443</text>
+
+<rect class="green" x="950" y="80" width="190" height="110"/>
+<text class="text" x="995" y="125">Arquivos</text>
+<text class="small" x="990" y="157">HTML/CSS/JS</text>
+
+<rect class="purple" x="950" y="300" width="190" height="110"/>
+<text class="text" x="1000" y="345">Backend</text>
+<text class="small" x="985" y="377">Node/FastAPI</text>
+
+<path class="arrow" d="M260 210 H360"/>
+<text class="tiny" x="275" y="196">consulta</text>
+<path class="arrow" d="M540 210 H640"/>
+<text class="tiny" x="560" y="196">IP do servidor</text>
+<path class="arrow" d="M260 250 C400 360 520 360 640 250"/>
+<text class="tiny" x="390" y="345">HTTP/HTTPS</text>
+<path class="arrow" d="M860 185 H950"/>
+<text class="tiny" x="875" y="170">conteúdo estático</text>
+<path class="arrow" d="M860 240 C900 270 910 325 950 350"/>
+<text class="tiny" x="885" y="305">proxy_pass</text>
+<path class="dash" d="M950 375 C790 500 400 500 240 270"/>
+<text class="tiny" x="525" y="525">resposta retorna ao cliente</text>
+
+</svg>

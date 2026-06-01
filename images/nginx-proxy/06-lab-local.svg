@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+<title id="title">Laboratório local com NGINX e Docker Compose</title>
+<desc id="desc">Diagrama didático da apostila de NGINX e Proxy.</desc>
+<style>
+  .bg { fill: #f8fafc; }
+  .box { fill: #ffffff; stroke: #334155; stroke-width: 2; rx: 18; }
+  .primary { fill: #dbeafe; stroke: #1d4ed8; stroke-width: 2; rx: 18; }
+  .green { fill: #dcfce7; stroke: #15803d; stroke-width: 2; rx: 18; }
+  .amber { fill: #fef3c7; stroke: #b45309; stroke-width: 2; rx: 18; }
+  .red { fill: #fee2e2; stroke: #b91c1c; stroke-width: 2; rx: 18; }
+  .purple { fill: #ede9fe; stroke: #6d28d9; stroke-width: 2; rx: 18; }
+  .text { font-family: Arial, Helvetica, sans-serif; fill: #0f172a; font-size: 24px; }
+  .small { font-family: Arial, Helvetica, sans-serif; fill: #334155; font-size: 18px; }
+  .tiny { font-family: Arial, Helvetica, sans-serif; fill: #475569; font-size: 15px; }
+  .title { font-family: Arial, Helvetica, sans-serif; fill: #0f172a; font-size: 32px; font-weight: 700; }
+  .arrow { stroke: #334155; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+  .dash { stroke: #64748b; stroke-width: 3; stroke-dasharray: 8 8; fill: none; marker-end: url(#arrow); }
+  .line { stroke: #94a3b8; stroke-width: 2; fill: none; }
+</style>
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+    <path d="M2,2 L10,6 L2,10 z" fill="#334155" />
+  </marker>
+</defs>
+<rect class="bg" x="0" y="0" width="1200" height="620"/>
+<text class="title" x="60" y="56">Laboratório local com NGINX e Docker Compose</text>
+
+<rect class="box" x="60" y="230" width="180" height="110"/>
+<text class="small" x="97" y="276">Browser</text>
+<text class="tiny" x="92" y="306">localhost:8080</text>
+
+<rect class="primary" x="360" y="210" width="220" height="150"/>
+<text class="text" x="420" y="270">nginx</text>
+<text class="tiny" x="400" y="305">container proxy</text>
+
+<rect class="green" x="760" y="120" width="220" height="100"/>
+<text class="small" x="805" y="165">api-a:3000</text>
+<text class="tiny" x="810" y="193">container</text>
+
+<rect class="green" x="760" y="300" width="220" height="100"/>
+<text class="small" x="805" y="345">api-b:3000</text>
+<text class="tiny" x="810" y="373">container</text>
+
+<rect class="amber" x="360" y="440" width="620" height="90"/>
+<text class="small" x="400" y="482">docker network: backend-net</text>
+<text class="tiny" x="400" y="508">os serviços se resolvem por nome: http://api-a:3000</text>
+
+<path class="arrow" d="M240 285 H360"/>
+<path class="arrow" d="M580 260 C670 170 705 170 760 170"/>
+<path class="arrow" d="M580 310 C670 350 705 350 760 350"/>
+<path class="dash" d="M470 360 V440"/>
+<path class="dash" d="M870 400 V440"/>
+
+</svg>

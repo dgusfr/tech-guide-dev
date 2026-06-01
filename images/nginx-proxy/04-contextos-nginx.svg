@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+<title id="title">Contextos de configuração do NGINX</title>
+<desc id="desc">Diagrama didático da apostila de NGINX e Proxy.</desc>
+<style>
+  .bg { fill: #f8fafc; }
+  .box { fill: #ffffff; stroke: #334155; stroke-width: 2; rx: 18; }
+  .primary { fill: #dbeafe; stroke: #1d4ed8; stroke-width: 2; rx: 18; }
+  .green { fill: #dcfce7; stroke: #15803d; stroke-width: 2; rx: 18; }
+  .amber { fill: #fef3c7; stroke: #b45309; stroke-width: 2; rx: 18; }
+  .red { fill: #fee2e2; stroke: #b91c1c; stroke-width: 2; rx: 18; }
+  .purple { fill: #ede9fe; stroke: #6d28d9; stroke-width: 2; rx: 18; }
+  .text { font-family: Arial, Helvetica, sans-serif; fill: #0f172a; font-size: 24px; }
+  .small { font-family: Arial, Helvetica, sans-serif; fill: #334155; font-size: 18px; }
+  .tiny { font-family: Arial, Helvetica, sans-serif; fill: #475569; font-size: 15px; }
+  .title { font-family: Arial, Helvetica, sans-serif; fill: #0f172a; font-size: 32px; font-weight: 700; }
+  .arrow { stroke: #334155; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+  .dash { stroke: #64748b; stroke-width: 3; stroke-dasharray: 8 8; fill: none; marker-end: url(#arrow); }
+  .line { stroke: #94a3b8; stroke-width: 2; fill: none; }
+</style>
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+    <path d="M2,2 L10,6 L2,10 z" fill="#334155" />
+  </marker>
+</defs>
+<rect class="bg" x="0" y="0" width="1200" height="620"/>
+<text class="title" x="60" y="56">Contextos de configuração do NGINX</text>
+
+<rect class="primary" x="70" y="120" width="1060" height="420"/>
+<text class="text" x="105" y="165">nginx.conf</text>
+
+<rect class="box" x="120" y="205" width="230" height="110"/>
+<text class="small" x="145" y="250">main context</text>
+<text class="tiny" x="145" y="282">worker_processes</text>
+
+<rect class="box" x="410" y="205" width="230" height="110"/>
+<text class="small" x="455" y="250">events</text>
+<text class="tiny" x="455" y="282">worker_connections</text>
+
+<rect class="amber" x="700" y="190" width="370" height="300"/>
+<text class="small" x="735" y="235">http</text>
+<text class="tiny" x="735" y="265">log_format, gzip, upstream</text>
+
+<rect class="green" x="740" y="300" width="290" height="75"/>
+<text class="small" x="765" y="345">server</text>
+<text class="tiny" x="840" y="345">listen, server_name</text>
+
+<rect class="purple" x="780" y="405" width="210" height="55"/>
+<text class="small" x="805" y="440">location /api</text>
+
+<path class="arrow" d="M350 260 H410"/>
+<path class="arrow" d="M640 260 H700"/>
+<path class="arrow" d="M885 275 V300"/>
+<path class="arrow" d="M885 375 V405"/>
+
+</svg>
