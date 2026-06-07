@@ -1,47 +1,48 @@
-# Start With Linux — Ambiente de Desenvolvimento no Ubuntu
+# Start with Linux — Ambiente de Desenvolvimento no Ubuntu
+
+Este guia é um passo a passo para preparar um Ubuntu para desenvolvimento backend, principalmente com Python, FastAPI, Docker, banco de dados e ferramentas de terminal.
+
+A regra deste documento é simples:
+
+- cada comando fica em um bloco separado;
+- execute os comandos na ordem;
+- não pule os comandos de verificação;
+- quando aparecer `nano`, você deve editar o arquivo, salvar e sair.
+
+No `nano`, para salvar e sair:
+
+1. Aperte `CTRL + O`
+2. Aperte `Enter`
+3. Aperte `CTRL + X`
+
+---
 
 ## Índice
 
-1. Capítulo 1 — Antes de começar
-2. Capítulo 2 — Atualizar o sistema
-3. Capítulo 3 — Ferramentas básicas de terminal e desenvolvimento
-4. Capítulo 4 — Git
-5. Capítulo 5 — Zsh e Oh My Zsh
-6. Capítulo 6 — Tmux
-7. Capítulo 7 — Google Chrome
-8. Capítulo 8 — Visual Studio Code
-9. Capítulo 9 — Docker Engine e Docker Compose Plugin
-10. Capítulo 10 — DBeaver Community
-11. Capítulo 11 — Dependências para Python e pyenv
-12. Capítulo 12 — Poetry
-13. Capítulo 13 — Postman ou Insomnia
-14. Capítulo 14 — Redis CLI
-15. Capítulo 15 — PostgreSQL Client
-16. Capítulo 16 — NVM, Node.js LTS e npm
-17. Capítulo 17 — GitHub CLI
-18. Capítulo 18 — Checklist final de validação
-99. Referências bibliográficas
+1. [Capítulo 1 — Atualizar o Ubuntu](#capitulo-1)
+2. [Capítulo 2 — Instalar pacotes básicos de desenvolvimento](#capitulo-2)
+3. [Capítulo 3 — Instalar e configurar Git](#capitulo-3)
+4. [Capítulo 4 — Instalar Zsh e Oh My Zsh](#capitulo-4)
+5. [Capítulo 5 — Instalar Google Chrome](#capitulo-5)
+6. [Capítulo 6 — Instalar Visual Studio Code](#capitulo-6)
+7. [Capítulo 7 — Instalar Docker Engine e Docker Compose](#capitulo-7)
+8. [Capítulo 8 — Instalar DBeaver Community](#capitulo-8)
+9. [Capítulo 9 — Instalar Postman](#capitulo-9)
+10. [Capítulo 10 — Instalar PostgreSQL Client](#capitulo-10)
+11. [Capítulo 11 — Instalar Redis CLI](#capitulo-11)
+12. [Capítulo 12 — Instalar pyenv](#capitulo-12)
+13. [Capítulo 13 — Instalar Poetry](#capitulo-13)
+14. [Capítulo 14 — Instalar NVM e Node.js LTS](#capitulo-14)
+15. [Capítulo 15 — Instalar GitHub CLI](#capitulo-15)
+16. [Capítulo 16 — Verificação final do ambiente](#capitulo-16)
+99. [Referências bibliográficas](#referencias-bibliograficas)
 
 ---
 
-# Capítulo 1 — Antes de começar
+<a id="capitulo-1"></a>
+# Capítulo 1 — Atualizar o Ubuntu
 
-Este arquivo é um guia prático para preparar um Ubuntu para desenvolvimento backend, principalmente com Python, FastAPI, bancos de dados, Docker, Git e ferramentas de API.
-
-A ideia é seguir os comandos na ordem correta e entender o que cada um faz.
-
-Observações importantes:
-
-- Sempre que aparecer `sudo`, o Ubuntu pode pedir a sua senha.
-- Quando o terminal pedir confirmação com `[Y/n]`, digite `y` e pressione Enter.
-- Se algum pacote já estiver instalado, o Ubuntu apenas avisará que ele já está na versão mais recente.
-- Depois de mudar shell, instalar Docker ou configurar variáveis no `.zshrc`, pode ser necessário fechar e abrir o terminal.
-
----
-
-# Capítulo 2 — Atualizar o sistema
-
-Antes de instalar qualquer ferramenta, atualize a lista de pacotes e os pacotes já instalados no sistema.
+Antes de instalar qualquer ferramenta, atualize a lista de pacotes do Ubuntu e depois atualize os pacotes já instalados.
 
 ## Comando 1
 
@@ -49,7 +50,7 @@ Antes de instalar qualquer ferramenta, atualize a lista de pacotes e os pacotes 
 sudo apt update
 ```
 
-Ele atualiza a lista de pacotes disponíveis nos repositórios configurados na sua máquina Linux. Ele não instala nem atualiza programas sozinho; apenas sincroniza a lista de versões disponíveis.
+Esse comando atualiza a lista de pacotes disponíveis nos repositórios configurados na sua máquina.
 
 ## Comando 2
 
@@ -57,50 +58,127 @@ Ele atualiza a lista de pacotes disponíveis nos repositórios configurados na s
 sudo apt upgrade -y
 ```
 
-Ele atualiza os pacotes já instalados no sistema para versões mais recentes disponíveis nos repositórios. O `-y` confirma automaticamente a instalação.
+Esse comando atualiza os pacotes já instalados no seu Ubuntu.
+
+## Comando 3
+
+```bash
+sudo apt autoremove -y
+```
+
+Esse comando remove dependências antigas que não são mais necessárias.
 
 ---
 
-# Capítulo 3 — Ferramentas básicas de terminal e desenvolvimento
+<a id="capitulo-2"></a>
+# Capítulo 2 — Instalar pacotes básicos de desenvolvimento
 
-Esses pacotes são a base para quase qualquer ambiente de desenvolvimento no Ubuntu.
+Esses pacotes são usados por várias ferramentas de desenvolvimento. Eles evitam erros comuns, como `curl: command not found`, `git: command not found`, erro de chave GPG, erro ao compilar Python pelo pyenv e falta de ferramentas de terminal.
 
 ## Comando 1
 
 ```bash
-sudo apt install -y git curl wget build-essential openssh-client zsh tmux unzip gnupg ca-certificates lsb-release software-properties-common
+sudo apt install git -y
 ```
 
-Ele instala ferramentas essenciais:
-
-- `git`: controle de versão.
-- `curl`: faz requisições e baixa arquivos via terminal.
-- `wget`: baixa arquivos via terminal.
-- `build-essential`: compiladores e ferramentas básicas de build.
-- `openssh-client`: permite usar SSH, inclusive com GitHub.
-- `zsh`: shell alternativo ao Bash.
-- `tmux`: mantém sessões de terminal abertas em segundo plano.
-- `unzip`: descompacta arquivos `.zip`.
-- `gnupg`: usado para chaves GPG de repositórios.
-- `ca-certificates`: certificados para conexões HTTPS confiáveis.
-- `lsb-release`: mostra informações da distribuição Linux.
-- `software-properties-common`: utilitários para gerenciar repositórios.
+Instala o Git, usado para versionamento de código.
 
 ## Comando 2
 
 ```bash
-git --version && curl --version && wget --version && zsh --version && tmux -V
+sudo apt install curl -y
 ```
 
-Ele verifica se algumas das ferramentas foram instaladas corretamente.
+Instala o curl, usado para baixar scripts e arquivos pela linha de comando.
+
+## Comando 3
+
+```bash
+sudo apt install wget -y
+```
+
+Instala o wget, outra ferramenta usada para baixar arquivos pelo terminal.
+
+## Comando 4
+
+```bash
+sudo apt install build-essential -y
+```
+
+Instala compiladores e ferramentas de build, úteis para Python, Node e bibliotecas nativas.
+
+## Comando 5
+
+```bash
+sudo apt install openssh-client -y
+```
+
+Instala o cliente SSH, necessário para autenticação com GitHub via chave SSH.
+
+## Comando 6
+
+```bash
+sudo apt install unzip -y
+```
+
+Instala suporte para descompactar arquivos `.zip`.
+
+## Comando 7
+
+```bash
+sudo apt install gnupg -y
+```
+
+Instala ferramentas GPG, usadas para validar chaves de repositórios externos.
+
+## Comando 8
+
+```bash
+sudo apt install ca-certificates -y
+```
+
+Instala certificados confiáveis para conexões HTTPS.
+
+## Comando 9
+
+```bash
+sudo apt install lsb-release -y
+```
+
+Instala uma ferramenta usada para identificar a versão da distribuição Linux.
+
+## Comando 10
+
+```bash
+sudo apt install software-properties-common -y
+```
+
+Instala utilitários para gerenciar repositórios no Ubuntu.
+
+## Comando 11
+
+```bash
+sudo apt install tmux -y
+```
+
+Instala o tmux, que permite manter sessões de terminal abertas mesmo se você fechar a janela.
+
+## Comando 12
+
+```bash
+tmux -V
+```
+
+Verifica se o tmux foi instalado corretamente.
 
 ---
 
-# Capítulo 4 — Git
+<a id="capitulo-3"></a>
+# Capítulo 3 — Instalar e configurar Git
 
-Git é a ferramenta de versionamento de código mais usada no desenvolvimento de software. Você usa Git para clonar projetos, criar branches, registrar commits e trabalhar com GitHub, GitLab ou Bitbucket.
+Git é a ferramenta principal para versionamento de código. Você usa Git para clonar projetos, criar branches, versionar alterações e enviar código para GitHub, GitLab ou Bitbucket.
 
-Se você já instalou o pacote básico do capítulo anterior, o Git provavelmente já está instalado.
+Se você já instalou o Git no capítulo anterior, aqui você só confirma a instalação e configura seu nome e e-mail.
 
 ## Comando 1
 
@@ -108,7 +186,7 @@ Se você já instalou o pacote básico do capítulo anterior, o Git provavelment
 git --version
 ```
 
-Verifica se o Git está instalado e mostra a versão.
+Mostra a versão instalada do Git.
 
 ## Comando 2
 
@@ -116,25 +194,25 @@ Verifica se o Git está instalado e mostra a versão.
 git config --global user.name "Seu Nome"
 ```
 
-Define o nome que aparecerá nos seus commits.
+Configura o nome que aparecerá nos commits.
 
 Exemplo:
 
-```bash
+```text
 git config --global user.name "Diego Gustavo Franco"
 ```
 
 ## Comando 3
 
 ```bash
-git config --global user.email "seu-email@email.com"
+git config --global user.email "seu-email@exemplo.com"
 ```
 
-Define o e-mail associado aos seus commits.
+Configura o e-mail que aparecerá nos commits.
 
 Exemplo:
 
-```bash
+```text
 git config --global user.email "diegogustavo.fr@gmail.com"
 ```
 
@@ -152,23 +230,24 @@ Define `main` como nome padrão da branch inicial em novos repositórios.
 git config --global --list
 ```
 
-Lista suas configurações globais do Git.
+Mostra suas configurações globais do Git.
 
 ---
 
-# Capítulo 5 — Zsh e Oh My Zsh
+<a id="capitulo-4"></a>
+# Capítulo 4 — Instalar Zsh e Oh My Zsh
 
-Zsh é um shell alternativo ao Bash. Ele é bastante usado por desenvolvedores por causa de autocomplete melhorado, temas, plugins e customização.
+Zsh é um shell mais confortável que o Bash para uso diário. Oh My Zsh é um framework que deixa o Zsh mais amigável, com temas, plugins e atalhos.
 
-Oh My Zsh é um framework que facilita a configuração do Zsh.
+Importante: o erro `zsh: command not found: curl` acontece quando o curl ainda não foi instalado. Por isso o curl foi instalado antes, no Capítulo 2.
 
 ## Comando 1
 
 ```bash
-sudo apt install -y zsh
+sudo apt install zsh -y
 ```
 
-Instala o Zsh no Ubuntu.
+Instala o Zsh.
 
 ## Comando 2
 
@@ -176,7 +255,7 @@ Instala o Zsh no Ubuntu.
 zsh --version
 ```
 
-Verifica se o Zsh foi instalado corretamente.
+Verifica se o Zsh foi instalado.
 
 ## Comando 3
 
@@ -184,7 +263,17 @@ Verifica se o Zsh foi instalado corretamente.
 chsh -s $(which zsh)
 ```
 
-Define o Zsh como shell padrão do seu usuário. Depois desse comando, feche e abra o terminal, ou reinicie a sessão do Ubuntu.
+Define o Zsh como shell padrão do seu usuário.
+
+Depois desse comando, feche e abra o terminal.
+
+Se aparecer a tela `zsh-newuser-install`, digite:
+
+```text
+0
+```
+
+Isso cria um `.zshrc` mínimo e impede que essa tela apareça de novo.
 
 ## Comando 4
 
@@ -192,9 +281,23 @@ Define o Zsh como shell padrão do seu usuário. Depois desse comando, feche e a
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-Instala o Oh My Zsh usando o script oficial do projeto.
+Instala o Oh My Zsh usando o script oficial.
 
 ## Comando 5
+
+```bash
+echo $SHELL
+```
+
+Mostra qual shell está sendo usado.
+
+O esperado é algo parecido com:
+
+```text
+/usr/bin/zsh
+```
+
+## Comando 6
 
 ```bash
 nano ~/.zshrc
@@ -202,21 +305,15 @@ nano ~/.zshrc
 
 Abre o arquivo de configuração do Zsh.
 
-Procure a linha:
+Procure a linha dos plugins e deixe assim:
 
-```bash
+```text
 plugins=(git)
 ```
 
-Ela ativa o plugin do Git no Oh My Zsh.
+Salve e saia do nano.
 
-Para salvar no Nano:
-
-1. Pressione `Ctrl + O`.
-2. Pressione Enter.
-3. Pressione `Ctrl + X`.
-
-## Comando 6
+## Comando 7
 
 ```bash
 source ~/.zshrc
@@ -226,54 +323,10 @@ Recarrega as configurações do Zsh sem precisar fechar o terminal.
 
 ---
 
-# Capítulo 6 — Tmux
+<a id="capitulo-5"></a>
+# Capítulo 5 — Instalar Google Chrome
 
-Tmux é um multiplexador de terminal. Ele permite criar várias sessões, janelas e painéis dentro do terminal.
-
-É muito útil para desenvolvimento, servidores, Docker, logs e tarefas longas.
-
-## Comando 1
-
-```bash
-sudo apt install -y tmux
-```
-
-Instala o tmux.
-
-## Comando 2
-
-```bash
-tmux -V
-```
-
-Verifica a versão instalada.
-
-## Comando 3
-
-```bash
-tmux
-```
-
-Abre uma nova sessão tmux.
-
-Atalhos básicos dentro do tmux:
-
-- `Ctrl + B`, depois `%`: divide a tela verticalmente.
-- `Ctrl + B`, depois `"`: divide a tela horizontalmente.
-- `Ctrl + B`, depois seta direcional: muda de painel.
-- `Ctrl + B`, depois `d`: sai da sessão sem encerrá-la.
-
-Para voltar a uma sessão aberta:
-
-```bash
-tmux attach
-```
-
----
-
-# Capítulo 7 — Google Chrome
-
-Google Chrome é útil para desenvolvimento web, testes de aplicações, DevTools, debug de front-end e uso diário.
+Google Chrome é útil para desenvolvimento web, testes de APIs, documentação, Google Meet, WhatsApp Web e ferramentas de desenvolvimento do navegador.
 
 ## Comando 1
 
@@ -281,7 +334,7 @@ Google Chrome é útil para desenvolvimento web, testes de aplicações, DevTool
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 ```
 
-Baixa o pacote `.deb` oficial do Google Chrome para Debian/Ubuntu.
+Baixa o pacote `.deb` oficial do Google Chrome para Ubuntu/Debian.
 
 ## Comando 2
 
@@ -289,9 +342,17 @@ Baixa o pacote `.deb` oficial do Google Chrome para Debian/Ubuntu.
 sudo apt install ./google-chrome-stable_current_amd64.deb -y
 ```
 
-Instala o Google Chrome a partir do arquivo baixado. O `apt` também resolve dependências automaticamente.
+Instala o Google Chrome e suas dependências.
 
 ## Comando 3
+
+```bash
+rm google-chrome-stable_current_amd64.deb
+```
+
+Remove o instalador depois que o Chrome já foi instalado.
+
+## Comando 4
 
 ```bash
 google-chrome --version
@@ -299,75 +360,103 @@ google-chrome --version
 
 Verifica se o Chrome foi instalado corretamente.
 
-## Comando 4
-
-```bash
-google-chrome
-```
-
-Abre o Google Chrome pelo terminal.
-
 ---
 
-# Capítulo 8 — Visual Studio Code
+<a id="capitulo-6"></a>
+# Capítulo 6 — Instalar Visual Studio Code
 
-Visual Studio Code é o editor principal para desenvolvimento. Ele é muito usado com Python, FastAPI, Docker, Git, Markdown, APIs e extensões.
+Visual Studio Code é o editor principal para programar. Ele funciona bem com Python, FastAPI, Docker, Git, Markdown, YAML, JSON e extensões para desenvolvimento backend.
 
 ## Comando 1
 
 ```bash
-wget -O code.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+sudo install -m 0755 -d /etc/apt/keyrings
 ```
 
-Baixa o pacote `.deb` oficial do VS Code.
+Garante que a pasta de chaves APT exista.
 
 ## Comando 2
 
 ```bash
-sudo apt install ./code.deb -y
+wget -qO microsoft.asc https://packages.microsoft.com/keys/microsoft.asc
 ```
 
-Instala o VS Code no Ubuntu.
+Baixa a chave pública da Microsoft.
 
 ## Comando 3
 
 ```bash
-code --version
+sudo gpg --dearmor -o /etc/apt/keyrings/packages.microsoft.gpg microsoft.asc
 ```
 
-Verifica se o comando `code` está disponível no terminal.
+Converte e salva a chave da Microsoft no formato usado pelo APT.
 
 ## Comando 4
 
 ```bash
-code .
+rm microsoft.asc
 ```
 
-Abre a pasta atual no VS Code.
+Remove o arquivo temporário da chave.
 
----
+## Comando 5
 
-# Capítulo 9 — Docker Engine e Docker Compose Plugin
+```bash
+echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
+```
 
-Docker permite rodar aplicações em containers. Para desenvolvimento backend, ele é muito útil para subir bancos como PostgreSQL, Redis, MySQL e serviços auxiliares sem instalar tudo diretamente no sistema.
+Adiciona o repositório oficial do VS Code no APT.
 
-Docker Compose permite subir múltiplos containers a partir de um arquivo `docker-compose.yml` ou `compose.yml`.
-
-## Comando 1
+## Comando 6
 
 ```bash
 sudo apt update
 ```
 
-Atualiza a lista de pacotes.
+Atualiza a lista de pacotes, agora incluindo o repositório do VS Code.
+
+## Comando 7
+
+```bash
+sudo apt install code -y
+```
+
+Instala o Visual Studio Code.
+
+## Comando 8
+
+```bash
+code --version
+```
+
+Verifica se o VS Code foi instalado corretamente.
+
+---
+
+<a id="capitulo-7"></a>
+# Capítulo 7 — Instalar Docker Engine e Docker Compose
+
+Docker permite rodar serviços em containers, como PostgreSQL, Redis, APIs, workers e ambientes de desenvolvimento isolados. Para backend, é uma das ferramentas mais importantes.
+
+Este passo instala o Docker Engine oficial pelo repositório da Docker.
+
+## Comando 1
+
+```bash
+sudo apt remove docker.io docker-compose docker-compose-v2 docker-doc podman-docker containerd runc -y
+```
+
+Remove pacotes antigos ou conflitantes, se existirem.
+
+Se aparecer que alguns pacotes não existem, não tem problema.
 
 ## Comando 2
 
 ```bash
-sudo apt install -y ca-certificates curl
+sudo apt install ca-certificates curl -y
 ```
 
-Garante que o sistema tenha certificados HTTPS e `curl`, necessários para adicionar o repositório oficial do Docker.
+Garante os pacotes necessários para baixar a chave oficial da Docker via HTTPS.
 
 ## Comando 3
 
@@ -375,7 +464,7 @@ Garante que o sistema tenha certificados HTTPS e `curl`, necessários para adici
 sudo install -m 0755 -d /etc/apt/keyrings
 ```
 
-Cria o diretório onde a chave GPG do Docker será armazenada.
+Cria a pasta de chaves do APT, caso ela ainda não exista.
 
 ## Comando 4
 
@@ -383,7 +472,7 @@ Cria o diretório onde a chave GPG do Docker será armazenada.
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 ```
 
-Baixa a chave GPG oficial do Docker.
+Baixa a chave GPG oficial da Docker.
 
 ## Comando 5
 
@@ -391,15 +480,15 @@ Baixa a chave GPG oficial do Docker.
 sudo chmod a+r /etc/apt/keyrings/docker.asc
 ```
 
-Permite que o `apt` leia a chave GPG do Docker.
+Ajusta a permissão da chave para o APT conseguir ler.
 
 ## Comando 6
 
 ```bash
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo \"${UBUNTU_CODENAME:-$VERSION_CODENAME}\") stable" | sudo tee /etc/apt/sources.list.d/docker.list
 ```
 
-Adiciona o repositório oficial do Docker ao Ubuntu.
+Adiciona o repositório oficial da Docker no Ubuntu.
 
 ## Comando 7
 
@@ -407,15 +496,15 @@ Adiciona o repositório oficial do Docker ao Ubuntu.
 sudo apt update
 ```
 
-Atualiza a lista de pacotes novamente, agora incluindo o repositório do Docker.
+Atualiza a lista de pacotes, agora incluindo o repositório da Docker.
 
 ## Comando 8
 
 ```bash
-sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 ```
 
-Instala Docker Engine, Docker CLI, runtime de containers, Buildx e Docker Compose Plugin.
+Instala Docker Engine, Docker CLI, containerd, Buildx e Docker Compose Plugin.
 
 ## Comando 9
 
@@ -423,7 +512,7 @@ Instala Docker Engine, Docker CLI, runtime de containers, Buildx e Docker Compos
 sudo docker run hello-world
 ```
 
-Testa se o Docker está funcionando.
+Testa se o Docker está funcionando usando `sudo`.
 
 ## Comando 10
 
@@ -431,33 +520,70 @@ Testa se o Docker está funcionando.
 sudo usermod -aG docker $USER
 ```
 
-Adiciona seu usuário ao grupo `docker`, permitindo rodar Docker sem `sudo`. Depois desse comando, reinicie o computador ou faça logout/login.
+Adiciona seu usuário ao grupo `docker`, para você poder usar Docker sem `sudo`.
 
 ## Comando 11
 
 ```bash
-docker --version && docker compose version
+newgrp docker
 ```
 
-Verifica as versões do Docker e do Docker Compose.
+Ativa o grupo `docker` na sessão atual do terminal.
+
+## Comando 12
+
+```bash
+docker run hello-world
+```
+
+Testa se o Docker funciona sem `sudo`.
+
+## Comando 13
+
+```bash
+docker compose version
+```
+
+Verifica se o Docker Compose Plugin foi instalado corretamente.
 
 ---
 
-# Capítulo 10 — DBeaver Community
+<a id="capitulo-8"></a>
+# Capítulo 8 — Instalar DBeaver Community
 
-DBeaver Community é um cliente gráfico para bancos de dados. Ele ajuda a visualizar tabelas, rodar SQL, conectar em PostgreSQL, MySQL, MariaDB, SQLite, SQL Server e outros bancos.
+DBeaver Community é uma ferramenta visual para acessar bancos de dados. É útil para PostgreSQL, MySQL, MariaDB, SQLite, SQL Server, Oracle e outros.
 
-Como no seu caso o repositório `apt` do DBeaver deu erro de chave GPG, a instalação via Snap é a mais simples.
+Como o repositório APT do DBeaver pode gerar erro de chave GPG em alguns casos, a forma mais simples no Ubuntu Desktop é instalar pelo Snap.
 
 ## Comando 1
+
+```bash
+snap version
+```
+
+Verifica se o Snap está disponível no seu Ubuntu.
+
+Se esse comando funcionar, siga para o Comando 3.
+
+Se aparecer `snap: command not found`, execute o Comando 2.
+
+## Comando 2
+
+```bash
+sudo apt install snapd -y
+```
+
+Instala o Snap, caso ele não esteja presente.
+
+## Comando 3
 
 ```bash
 sudo snap install dbeaver-ce
 ```
 
-Instala o DBeaver Community pelo Snap.
+Instala o DBeaver Community.
 
-## Comando 2
+## Comando 4
 
 ```bash
 dbeaver-ce
@@ -465,65 +591,244 @@ dbeaver-ce
 
 Abre o DBeaver pelo terminal.
 
-## Observação
-
-Se o DBeaver precisar acessar chaves SSH para conectar em bancos via túnel SSH, talvez seja necessário liberar permissões no Ubuntu Software ou conectar interfaces do Snap.
+Você também pode abrir pelo menu do Ubuntu procurando por `DBeaver`.
 
 ---
 
-# Capítulo 11 — Dependências para Python e pyenv
+<a id="capitulo-9"></a>
+# Capítulo 9 — Instalar Postman
 
-pyenv permite instalar e alternar entre várias versões do Python sem depender apenas da versão que vem no Ubuntu.
-
-Antes de instalar o pyenv, instale as dependências de compilação do Python.
+Postman é usado para testar APIs. Com ele você cria collections, configura autenticação, salva requisições, testa rotas e compartilha ambientes.
 
 ## Comando 1
 
 ```bash
-sudo apt update
+sudo snap install postman
 ```
 
-Atualiza a lista de pacotes.
+Instala o Postman pelo Snap.
 
 ## Comando 2
 
 ```bash
-sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl git libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+postman
 ```
 
-Instala bibliotecas e ferramentas necessárias para compilar versões do Python com pyenv.
+Abre o Postman pelo terminal.
+
+Você também pode abrir pelo menu do Ubuntu procurando por `Postman`.
+
+---
+
+<a id="capitulo-10"></a>
+# Capítulo 10 — Instalar PostgreSQL Client
+
+PostgreSQL Client instala o comando `psql`, usado para conectar em bancos PostgreSQL pelo terminal.
+
+Você pode usar o `psql` mesmo se o PostgreSQL estiver rodando em Docker, em outro servidor ou na nuvem.
+
+## Comando 1
+
+```bash
+sudo apt install postgresql-client -y
+```
+
+Instala o cliente PostgreSQL.
+
+## Comando 2
+
+```bash
+psql --version
+```
+
+Verifica se o `psql` foi instalado corretamente.
+
+Exemplo de uso futuro:
+
+```text
+psql -h localhost -p 5432 -U postgres -d nome_do_banco
+```
+
+---
+
+<a id="capitulo-11"></a>
+# Capítulo 11 — Instalar Redis CLI
+
+Redis CLI instala o comando `redis-cli`, usado para testar conexão com Redis, inspecionar chaves, publicar mensagens e debugar aplicações que usam Redis.
+
+Você pode usar o `redis-cli` mesmo se o Redis estiver rodando via Docker.
+
+## Comando 1
+
+```bash
+sudo apt install redis-tools -y
+```
+
+Instala as ferramentas de linha de comando do Redis.
+
+## Comando 2
+
+```bash
+redis-cli --version
+```
+
+Verifica se o Redis CLI foi instalado corretamente.
+
+Exemplo de uso futuro:
+
+```text
+redis-cli -h localhost -p 6379
+```
+
+---
+
+<a id="capitulo-12"></a>
+# Capítulo 12 — Instalar pyenv
+
+pyenv serve para instalar e gerenciar várias versões do Python sem bagunçar o Python do sistema operacional.
+
+Para desenvolvimento backend com Python, FastAPI, SQLAlchemy, Alembic e Poetry, pyenv é muito útil.
+
+## Comando 1
+
+```bash
+sudo apt install make -y
+```
+
+Instala o `make`, usado durante a compilação do Python.
+
+## Comando 2
+
+```bash
+sudo apt install libssl-dev -y
+```
+
+Instala dependências de SSL, necessárias para o Python compilar suporte a HTTPS.
 
 ## Comando 3
+
+```bash
+sudo apt install zlib1g-dev -y
+```
+
+Instala dependência de compressão usada pelo Python.
+
+## Comando 4
+
+```bash
+sudo apt install libbz2-dev -y
+```
+
+Instala suporte a bzip2.
+
+## Comando 5
+
+```bash
+sudo apt install libreadline-dev -y
+```
+
+Instala suporte ao readline, usado no terminal interativo do Python.
+
+## Comando 6
+
+```bash
+sudo apt install libsqlite3-dev -y
+```
+
+Instala suporte ao SQLite no Python.
+
+## Comando 7
+
+```bash
+sudo apt install libncursesw5-dev -y
+```
+
+Instala dependência de terminal usada por algumas bibliotecas.
+
+## Comando 8
+
+```bash
+sudo apt install xz-utils -y
+```
+
+Instala utilitários para arquivos `.xz`.
+
+## Comando 9
+
+```bash
+sudo apt install tk-dev -y
+```
+
+Instala suporte a Tkinter.
+
+## Comando 10
+
+```bash
+sudo apt install libxml2-dev -y
+```
+
+Instala dependência para bibliotecas que trabalham com XML.
+
+## Comando 11
+
+```bash
+sudo apt install libxmlsec1-dev -y
+```
+
+Instala dependência usada por bibliotecas de XML Security.
+
+## Comando 12
+
+```bash
+sudo apt install libffi-dev -y
+```
+
+Instala suporte a FFI, usado por várias bibliotecas Python.
+
+## Comando 13
+
+```bash
+sudo apt install liblzma-dev -y
+```
+
+Instala suporte a LZMA.
+
+## Comando 14
 
 ```bash
 curl -fsSL https://pyenv.run | bash
 ```
 
-Instala o pyenv usando o instalador recomendado pelo projeto.
+Instala o pyenv usando o instalador do projeto.
 
-## Comando 4
+## Comando 15
 
 ```bash
-cat <<'PYENV_CONFIG' >> ~/.zshrc
+nano ~/.zshrc
+```
 
+Abre o arquivo de configuração do Zsh.
+
+No final do arquivo, cole este trecho:
+
+```text
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init - zsh)"
-PYENV_CONFIG
 ```
 
-Adiciona a configuração do pyenv no `~/.zshrc`.
+Salve e saia do nano.
 
-## Comando 5
+## Comando 16
 
 ```bash
 source ~/.zshrc
 ```
 
-Recarrega o Zsh para o pyenv ficar disponível no terminal atual.
+Recarrega o Zsh para ativar o pyenv.
 
-## Comando 6
+## Comando 17
 
 ```bash
 pyenv --version
@@ -531,45 +836,46 @@ pyenv --version
 
 Verifica se o pyenv foi instalado corretamente.
 
-## Comando 7
+## Comando 18
 
 ```bash
-pyenv install --list | grep " 3\.12"
+pyenv install --list
 ```
 
-Lista versões disponíveis do Python 3.12.
+Lista as versões de Python disponíveis para instalação.
 
-## Comando 8
+## Comando 19
 
 ```bash
-pyenv install 3.12.8
+pyenv install 3.12.10
 ```
 
-Instala o Python 3.12.8 pelo pyenv.
+Instala o Python 3.12.10 pelo pyenv.
 
-## Comando 9
+## Comando 20
 
 ```bash
-pyenv global 3.12.8
+pyenv global 3.12.10
 ```
 
-Define o Python 3.12.8 como versão padrão global do seu usuário.
+Define o Python 3.12.10 como versão global do seu usuário.
 
-## Comando 10
+## Comando 21
 
 ```bash
-python --version && pip --version
+python --version
 ```
 
-Verifica as versões ativas do Python e do pip.
+Verifica qual Python está ativo.
 
 ---
 
-# Capítulo 12 — Poetry
+<a id="capitulo-13"></a>
+# Capítulo 13 — Instalar Poetry
 
-Poetry é uma ferramenta para gerenciar dependências e ambientes virtuais de projetos Python.
+Poetry é uma ferramenta para gerenciar dependências e ambientes virtuais em projetos Python.
 
-Ele substitui boa parte do uso manual de `pip`, `venv`, `requirements.txt` e ajuda a organizar o projeto com `pyproject.toml`.
+Com Poetry, você usa `pyproject.toml` em vez de depender só de `requirements.txt`.
 
 ## Comando 1
 
@@ -582,14 +888,19 @@ Instala o Poetry usando o instalador oficial.
 ## Comando 2
 
 ```bash
-cat <<'POETRY_CONFIG' >> ~/.zshrc
-
-# Poetry
-export PATH="$HOME/.local/bin:$PATH"
-POETRY_CONFIG
+nano ~/.zshrc
 ```
 
-Garante que o diretório onde o Poetry é instalado esteja no `PATH` do terminal.
+Abre o arquivo de configuração do Zsh.
+
+No final do arquivo, cole este trecho:
+
+```text
+# Poetry
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+Salve e saia do nano.
 
 ## Comando 3
 
@@ -597,7 +908,7 @@ Garante que o diretório onde o Poetry é instalado esteja no `PATH` do terminal
 source ~/.zshrc
 ```
 
-Recarrega o Zsh.
+Recarrega o Zsh para reconhecer o comando `poetry`.
 
 ## Comando 4
 
@@ -613,132 +924,32 @@ Verifica se o Poetry foi instalado corretamente.
 poetry config virtualenvs.in-project true
 ```
 
-Configura o Poetry para criar o ambiente virtual dentro da pasta do projeto, em uma pasta chamada `.venv`. Essa configuração é útil porque deixa o ambiente do projeto mais visível e fácil de usar no VS Code.
+Configura o Poetry para criar o ambiente virtual dentro do projeto, na pasta `.venv`.
+
+Isso facilita o uso com VS Code.
+
+## Comando 6
+
+```bash
+poetry config --list
+```
+
+Mostra as configurações atuais do Poetry.
 
 ---
 
-# Capítulo 13 — Postman ou Insomnia
+<a id="capitulo-14"></a>
+# Capítulo 14 — Instalar NVM e Node.js LTS
 
-Postman é uma ferramenta para testar APIs. Com ele você consegue criar requisições HTTP, salvar collections, testar autenticação, headers, body, rotas e ambientes.
+NVM é o gerenciador de versões do Node.js. Mesmo sendo backend Python, Node.js é útil para ferramentas de frontend, CLIs, documentação, linters e projetos full stack.
 
 ## Comando 1
 
 ```bash
-sudo snap install postman
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
 ```
 
-Instala o Postman via Snap.
-
-## Comando 2
-
-```bash
-postman
-```
-
-Abre o Postman pelo terminal.
-
-## Alternativa: Insomnia
-
-Insomnia também é uma boa ferramenta para testar APIs.
-
-```bash
-sudo snap install insomnia
-```
-
-Instala o Insomnia via Snap.
-
----
-
-# Capítulo 14 — Redis CLI
-
-Redis CLI é o cliente de terminal para conversar com servidores Redis.
-
-Mesmo usando Redis via Docker, é útil ter o `redis-cli` instalado no Ubuntu para testar conexão, comandos e filas.
-
-## Comando 1
-
-```bash
-sudo apt install -y redis-tools
-```
-
-Instala ferramentas de cliente do Redis, incluindo o `redis-cli`.
-
-## Comando 2
-
-```bash
-redis-cli --version
-```
-
-Verifica se o `redis-cli` foi instalado.
-
-## Comando 3
-
-```bash
-redis-cli ping
-```
-
-Tenta conectar em um Redis rodando localmente na porta padrão `6379`.
-
-Se houver Redis rodando, a resposta esperada é:
-
-```text
-PONG
-```
-
-Se não houver Redis rodando, aparecerá erro de conexão. Isso não significa que o `redis-cli` está errado; significa apenas que não existe servidor Redis ativo naquele momento.
-
----
-
-# Capítulo 15 — PostgreSQL Client
-
-PostgreSQL Client instala o `psql`, que é o cliente de terminal do PostgreSQL.
-
-Mesmo se você roda PostgreSQL via Docker, o `psql` ajuda a testar conexão, executar SQL e depurar banco de dados.
-
-## Comando 1
-
-```bash
-sudo apt install -y postgresql-client
-```
-
-Instala o cliente PostgreSQL.
-
-## Comando 2
-
-```bash
-psql --version
-```
-
-Verifica se o `psql` foi instalado.
-
-## Exemplo de conexão
-
-```bash
-psql -h localhost -p 5432 -U postgres -d postgres
-```
-
-Esse comando tenta conectar em um PostgreSQL local:
-
-- `-h localhost`: host do banco.
-- `-p 5432`: porta padrão do PostgreSQL.
-- `-U postgres`: usuário.
-- `-d postgres`: banco de dados.
-
----
-
-# Capítulo 16 — NVM, Node.js LTS e npm
-
-NVM é o Node Version Manager. Ele permite instalar e alternar entre versões do Node.js.
-
-Mesmo trabalhando com backend Python, Node.js pode ser necessário para ferramentas de documentação, front-end, CLIs, projetos fullstack e automações.
-
-## Comando 1
-
-```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
-```
-
-Instala o NVM usando o script oficial do projeto.
+Instala o NVM usando o script oficial.
 
 ## Comando 2
 
@@ -746,15 +957,23 @@ Instala o NVM usando o script oficial do projeto.
 source ~/.zshrc
 ```
 
-Recarrega o Zsh para disponibilizar o comando `nvm`. Se o comando ainda não aparecer, feche e abra o terminal.
+Recarrega o Zsh.
+
+Se o comando `nvm` ainda não funcionar, feche e abra o terminal.
 
 ## Comando 3
 
 ```bash
-nvm --version
+command -v nvm
 ```
 
-Verifica se o NVM foi instalado corretamente.
+Verifica se o NVM foi carregado corretamente.
+
+O esperado é aparecer:
+
+```text
+nvm
+```
 
 ## Comando 4
 
@@ -767,20 +986,91 @@ Instala a versão LTS mais recente do Node.js.
 ## Comando 5
 
 ```bash
-node --version && npm --version
+nvm use --lts
 ```
 
-Verifica as versões do Node.js e do npm.
+Ativa a versão LTS do Node.js.
+
+## Comando 6
+
+```bash
+nvm alias default lts/*
+```
+
+Define a versão LTS como padrão para novos terminais.
+
+## Comando 7
+
+```bash
+node --version
+```
+
+Verifica a versão instalada do Node.js.
+
+## Comando 8
+
+```bash
+npm --version
+```
+
+Verifica a versão instalada do npm.
 
 ---
 
-# Capítulo 17 — GitHub CLI
+<a id="capitulo-15"></a>
+# Capítulo 15 — Instalar GitHub CLI
 
-GitHub CLI, comando `gh`, permite usar recursos do GitHub diretamente pelo terminal.
-
-Você pode autenticar sua conta, clonar repositórios, ver pull requests, issues e interagir com o GitHub sem abrir o navegador o tempo todo.
+GitHub CLI instala o comando `gh`, usado para autenticar no GitHub, listar repositórios, clonar projetos, abrir pull requests, ver issues e trabalhar com GitHub direto pelo terminal.
 
 ## Comando 1
+
+```bash
+sudo install -m 0755 -d /etc/apt/keyrings
+```
+
+Garante que a pasta de chaves APT exista.
+
+## Comando 2
+
+```bash
+wget -nv -O githubcli-archive-keyring.gpg https://cli.github.com/packages/githubcli-archive-keyring.gpg
+```
+
+Baixa a chave oficial do GitHub CLI.
+
+## Comando 3
+
+```bash
+sudo cp githubcli-archive-keyring.gpg /etc/apt/keyrings/githubcli-archive-keyring.gpg
+```
+
+Copia a chave para a pasta usada pelo APT.
+
+## Comando 4
+
+```bash
+sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg
+```
+
+Ajusta a permissão da chave.
+
+## Comando 5
+
+```bash
+rm githubcli-archive-keyring.gpg
+```
+
+Remove o arquivo temporário da chave.
+
+## Comando 6
+
+```bash
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list
+```
+
+Adiciona o repositório oficial do GitHub CLI.
+
+## Comando 7
 
 ```bash
 sudo apt update
@@ -788,135 +1078,210 @@ sudo apt update
 
 Atualiza a lista de pacotes.
 
-## Comando 2
+## Comando 8
 
 ```bash
-sudo apt install -y gh
+sudo apt install gh -y
 ```
 
-Instala o GitHub CLI pelo repositório disponível no Ubuntu.
+Instala o GitHub CLI.
 
-## Comando 3
+## Comando 9
 
 ```bash
 gh --version
 ```
 
-Verifica se o GitHub CLI foi instalado.
+Verifica se o GitHub CLI foi instalado corretamente.
 
-## Comando 4
+## Comando 10
 
 ```bash
 gh auth login
 ```
 
-Inicia o login da sua conta GitHub pelo terminal.
+Inicia o login no GitHub pelo terminal.
 
-Fluxo recomendado:
+Sugestão de escolhas durante o login:
 
-1. Escolha `GitHub.com`.
-2. Escolha `HTTPS` ou `SSH`, conforme sua preferência.
-3. Autentique pelo navegador quando ele pedir.
-4. Confirme a autenticação.
+```text
+GitHub.com
+HTTPS ou SSH, conforme seu uso
+Login with a web browser
+```
+
+---
+
+<a id="capitulo-16"></a>
+# Capítulo 16 — Verificação final do ambiente
+
+Depois de instalar tudo, rode os comandos abaixo para conferir o ambiente.
+
+## Comando 1
+
+```bash
+git --version
+```
+
+Confere o Git.
+
+## Comando 2
+
+```bash
+zsh --version
+```
+
+Confere o Zsh.
+
+## Comando 3
+
+```bash
+echo $SHELL
+```
+
+Confere o shell padrão.
+
+## Comando 4
+
+```bash
+google-chrome --version
+```
+
+Confere o Google Chrome.
 
 ## Comando 5
 
 ```bash
-gh auth status
+code --version
 ```
 
-Verifica se você está autenticado no GitHub CLI.
+Confere o VS Code.
 
----
-
-# Capítulo 18 — Checklist final de validação
-
-Depois de instalar tudo, rode este bloco para verificar as principais ferramentas.
-
-## Comando único de verificação
+## Comando 6
 
 ```bash
-echo "Sistema:" && lsb_release -a 2>/dev/null || cat /etc/os-release
-
-echo "\nGit:" && git --version
-
-echo "\nZsh:" && zsh --version
-
-echo "\nTmux:" && tmux -V
-
-echo "\nChrome:" && google-chrome --version
-
-echo "\nVS Code:" && code --version
-
-echo "\nDocker:" && docker --version && docker compose version
-
-echo "\nDBeaver:" && snap list dbeaver-ce
-
-echo "\nPython:" && python --version && pip --version
-
-echo "\npyenv:" && pyenv --version
-
-echo "\nPoetry:" && poetry --version
-
-echo "\nRedis CLI:" && redis-cli --version
-
-echo "\nPostgreSQL Client:" && psql --version
-
-echo "\nNode e npm:" && node --version && npm --version
-
-echo "\nGitHub CLI:" && gh --version
+docker --version
 ```
 
-Esse comando não instala nada. Ele apenas mostra as versões das ferramentas instaladas.
+Confere o Docker.
 
-## Lista final esperada
+## Comando 7
 
-Ao final, seu Ubuntu deve ter:
+```bash
+docker compose version
+```
 
-- Google Chrome
-- Visual Studio Code
-- DBeaver Community
-- Docker Engine
-- Docker Compose Plugin
-- Git
-- Zsh
-- Oh My Zsh
-- Tmux
-- pyenv
-- Python gerenciado pelo pyenv
-- Poetry
-- Postman ou Insomnia
-- Redis CLI
-- PostgreSQL Client
-- NVM
-- Node.js LTS
-- npm
-- GitHub CLI
+Confere o Docker Compose.
+
+## Comando 8
+
+```bash
+python --version
+```
+
+Confere o Python ativo.
+
+## Comando 9
+
+```bash
+pyenv --version
+```
+
+Confere o pyenv.
+
+## Comando 10
+
+```bash
+poetry --version
+```
+
+Confere o Poetry.
+
+## Comando 11
+
+```bash
+node --version
+```
+
+Confere o Node.js.
+
+## Comando 12
+
+```bash
+npm --version
+```
+
+Confere o npm.
+
+## Comando 13
+
+```bash
+psql --version
+```
+
+Confere o PostgreSQL Client.
+
+## Comando 14
+
+```bash
+redis-cli --version
+```
+
+Confere o Redis CLI.
+
+## Comando 15
+
+```bash
+gh --version
+```
+
+Confere o GitHub CLI.
+
+## Comando 16
+
+```bash
+tmux -V
+```
+
+Confere o tmux.
 
 ---
 
-# 99. Referências bibliográficas
+<a id="referencias-bibliograficas"></a>
+# Referências bibliográficas
 
-- CHROME ENTERPRISE AND EDUCATION HELP. Fazer o download do instalador do Chrome para Linux. Google Support. Disponível em: https://support.google.com/chrome/a/answer/9025926?hl=pt-BR
-- VISUAL STUDIO CODE. Installing Visual Studio Code on Linux. Microsoft. Disponível em: https://code.visualstudio.com/docs/setup/linux
-- DOCKER DOCS. Install Docker Engine on Ubuntu. Docker. Disponível em: https://docs.docker.com/engine/install/ubuntu/
-- DBEAVER DOCUMENTATION. Snap installation. DBeaver. Disponível em: https://dbeaver.com/docs/dbeaver/Snap-installation/
-- SNAPCRAFT. DBeaver Community. Snap Store. Disponível em: https://snapcraft.io/dbeaver-ce
-- GIT. Install Git on Linux. Git SCM. Disponível em: https://git-scm.com/install/linux
-- GIT BOOK. Getting Started — Installing Git. Git SCM. Disponível em: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
-- OH MY ZSH. Oh My Zsh GitHub Repository. Disponível em: https://github.com/ohmyzsh/ohmyzsh
-- OH MY ZSH WIKI. Installing ZSH. Disponível em: https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
-- TMUX WIKI. Installing tmux. GitHub. Disponível em: https://github.com/tmux/tmux/wiki/Installing
-- PYENV. Simple Python Version Management: pyenv. GitHub. Disponível em: https://github.com/pyenv/pyenv
-- PYENV INSTALLER. pyenv-installer. GitHub. Disponível em: https://github.com/pyenv/pyenv-installer
-- PYTHON POETRY. Introduction — Poetry Documentation. Disponível em: https://python-poetry.org/docs/
-- PYTHON POETRY INSTALLER. Official Poetry installer. Disponível em: https://install.python-poetry.org/
-- POSTMAN. Postman API Platform. Disponível em: https://www.postman.com/
-- SNAPCRAFT. Install insomnia on Ubuntu. Disponível em: https://snapcraft.io/install/insomnia/ubuntu
-- REDIS DOCS. Install Redis on Linux. Disponível em: https://redis.io/docs/latest/operate/oss_and_stack/install/archive/install-redis/install-redis-on-linux/
-- REDIS DOCS. Install Redis Open Source on Ubuntu or Debian using APT. Disponível em: https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/apt/
-- POSTGRESQL. PostgreSQL official website. Disponível em: https://www.postgresql.org/
-- NVM. Node Version Manager. GitHub. Disponível em: https://github.com/nvm-sh/nvm
-- NODE.JS. Download Node.js with nvm. Disponível em: https://nodejs.org/en/download
-- GITHUB CLI. GitHub CLI official website. Disponível em: https://cli.github.com/
-- GITHUB CLI. GitHub CLI Linux installation documentation. Disponível em: https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+GIT. *1.5 Getting Started - Installing Git*. Disponível em: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git. Acesso em: 07 jun. 2026.
+
+TMUX. *Installing — tmux Wiki*. Disponível em: https://github.com/tmux/tmux/wiki/Installing. Acesso em: 07 jun. 2026.
+
+OH MY ZSH. *Oh My Zsh — Basic Installation*. Disponível em: https://ohmyz.sh/. Acesso em: 07 jun. 2026.
+
+MICROSOFT. *Installing Visual Studio Code on Linux*. Disponível em: https://code.visualstudio.com/docs/setup/linux. Acesso em: 07 jun. 2026.
+
+GOOGLE. *Fazer o download do instalador do Chrome*. Disponível em: https://support.google.com/chrome/a/answer/9025926?hl=pt-BR. Acesso em: 07 jun. 2026.
+
+DOCKER. *Install Docker Engine on Ubuntu*. Disponível em: https://docs.docker.com/engine/install/ubuntu/. Acesso em: 07 jun. 2026.
+
+DBEAVER. *Download DBeaver Community*. Disponível em: https://dbeaver.io/download/. Acesso em: 07 jun. 2026.
+
+SNAPCRAFT. *DBeaver Community*. Disponível em: https://snapcraft.io/dbeaver-ce. Acesso em: 07 jun. 2026.
+
+POSTMAN. *Install and update Postman*. Disponível em: https://learning.postman.com/docs/getting-started/installation/installation-and-updates/. Acesso em: 07 jun. 2026.
+
+SNAPCRAFT. *Postman*. Disponível em: https://snapcraft.io/postman. Acesso em: 07 jun. 2026.
+
+POSTGRESQL. *Linux downloads — Ubuntu*. Disponível em: https://www.postgresql.org/download/linux/ubuntu/. Acesso em: 07 jun. 2026.
+
+REDIS. *Install Redis on Linux*. Disponível em: https://redis.io/docs/latest/operate/oss_and_stack/install/archive/install-redis/install-redis-on-linux/. Acesso em: 07 jun. 2026.
+
+PYENV. *Simple Python Version Management: pyenv*. Disponível em: https://github.com/pyenv/pyenv. Acesso em: 07 jun. 2026.
+
+POETRY. *Poetry Documentation — Installation*. Disponível em: https://python-poetry.org/docs/. Acesso em: 07 jun. 2026.
+
+NVM. *Node Version Manager — Installing and Updating*. Disponível em: https://github.com/nvm-sh/nvm#installing-and-updating. Acesso em: 07 jun. 2026.
+
+NODE.JS. *Download Node.js*. Disponível em: https://nodejs.org/en/download. Acesso em: 07 jun. 2026.
+
+GITHUB CLI. *GitHub CLI — Linux Installation*. Disponível em: https://github.com/cli/cli/blob/trunk/docs/install_linux.md. Acesso em: 07 jun. 2026.
+
+GITHUB DOCS. *GitHub CLI quickstart*. Disponível em: https://docs.github.com/en/github-cli/github-cli/quickstart. Acesso em: 07 jun. 2026.
